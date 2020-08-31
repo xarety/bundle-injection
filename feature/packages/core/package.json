@@ -4,10 +4,15 @@
     "description": "",
     "main": "./dist/bundle/index.js",
     "typings": "./dist/bundle/index.d.ts",
-    "scripts": {},
+    "scripts": {
+        "bundle": "rollup -c rollup.config.js"
+    },
     "dependencies": {
+        "@rollup/plugin-commonjs": "~15.0.0",
+        "@rollup/plugin-node-resolve": "~9.0.0",
         "@sandboxes/feature-abstractions": "^0.0.12",
-        "react": "~16.13.1"
+        "react": "~16.13.1",
+        "rollup": "~2.26.8"
     },
     "devDependencies": {
         "@types/react": "~16.9.38"
