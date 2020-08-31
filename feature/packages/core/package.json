@@ -12,6 +12,8 @@
         "@rollup/plugin-node-resolve": "~9.0.0",
         "@sandboxes/feature-abstractions": "^0.0.15",
         "react": "~16.13.1",
+        "rollup-plugin-node-builtins": "~2.1.2",
+        "rollup-plugin-node-globals": "~1.4.0",
         "rollup": "~2.26.8"
     },
     "devDependencies": {
