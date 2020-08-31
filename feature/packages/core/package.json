@@ -4,9 +4,6 @@
     "description": "",
     "main": "./dist/bundle/index.js",
     "typings": "./dist/bundle/index.d.ts",
-    "scripts": {
-        "bundle": "rollup -c rollup.config.js"
-    },
     "dependencies": {
         "@rollup/plugin-commonjs": "~15.0.0",
         "@rollup/plugin-node-resolve": "~9.0.0",
@@ -21,5 +18,8 @@
     },
     "publishConfig": {
         "access": "public"
+    },
+    "cli": {
+        "webpack": false
     }
 }
