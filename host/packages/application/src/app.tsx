@@ -5,22 +5,14 @@ import { SideNavLinkItem } from '@servicetitan/link-item';
 
 import { IWidget } from '@sandboxes/feature-abstractions';
 
-const importShim = (window as any).importShim;
-
 import './app.css';
 
-const Widget = React.lazy<IWidget>(() => {
-    importShim('https://unpkg.com/@sandboxes/feature@0.0.15/dist/bundle/index.js').then((x: any) =>
-        console.log(window[x as any])
+const Widget = React.lazy<IWidget>(async () => {
+    const { Widget } = await importShim(
+        'https://unpkg.com/@sandboxes/feature/dist/bundle/index.js'
     );
 
-    class Stub extends React.Component {
-        render() {
-            return 'Hey man!';
-        }
-    }
-
-    return Promise.resolve({ default: Stub as any });
+    return Promise.resolve({ default: Widget });
 });
 
 export const App: React.FC = () => (
