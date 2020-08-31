@@ -8,11 +8,11 @@ import { IWidget } from '@sandboxes/feature-abstractions';
 import './app.css';
 
 const Widget = React.lazy<IWidget>(async () => {
-    const bundle: { default: { Widget: IWidget } } = await importShim(
+    const { Widget } = await importShim(
         'https://unpkg.com/@sandboxes/feature/dist/bundle/index.js'
     );
 
-    return Promise.resolve({ default: bundle.default.Widget });
+    return Promise.resolve({ default: Widget });
 });
 
 export const App: React.FC = () => (
