@@ -1,6 +1,8 @@
 {
     "extends": "@servicetitan/startup/tsconfig/base",
     "compilerOptions": {
+        "module": "esnext",
+        "moduleResolution": "node",
         "outDir": "dist",
         "rootDir": "src"
     },
