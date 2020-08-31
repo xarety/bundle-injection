@@ -7,7 +7,6 @@
         "bootstrap": "npx lerna@3 bootstrap --hoist",
         "prestart": "npm run bootstrap",
         "start": "startup start",
-        "prebuild": "npm run bootstrap",
         "build": "startup build",
         "lint": "startup lint",
         "test": "startup test"
