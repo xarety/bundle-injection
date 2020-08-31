@@ -10,7 +10,7 @@ const importShim = (window as any).importShim;
 import './app.css';
 
 const Widget = React.lazy<IWidget>(async () => {
-    const result = await importShim('https://unpkg.com/@sandboxes/feature@0.0.7/dist/index.js');
+    const result = await importShim('https://unpkg.com/@sandboxes/feature');
     debugger;
 
     class Stub extends React.Component {

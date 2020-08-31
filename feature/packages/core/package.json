@@ -2,8 +2,8 @@
     "name": "@sandboxes/feature",
     "version": "0.0.9",
     "description": "",
-    "main": "./dist/index.js",
-    "typings": "./dist/index.d.ts",
+    "main": "./dist/bundle/index.js",
+    "typings": "./dist/bundle/index.d.ts",
     "scripts": {},
     "dependencies": {
         "@sandboxes/feature-abstractions": "^0.0.9",
@@ -14,8 +14,5 @@
     },
     "publishConfig": {
         "access": "public"
-    },
-    "cli": {
-        "webpack": false
     }
 }
