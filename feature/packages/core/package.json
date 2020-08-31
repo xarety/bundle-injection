@@ -1,13 +1,13 @@
 {
     "name": "@sandboxes/feature",
-    "version": "0.0.19",
+    "version": "0.0.20",
     "description": "",
     "main": "./dist/bundle/index.js",
     "typings": "./dist/bundle/index.d.ts",
     "dependencies": {
         "@rollup/plugin-commonjs": "~15.0.0",
         "@rollup/plugin-node-resolve": "~9.0.0",
-        "@sandboxes/feature-abstractions": "^0.0.19",
+        "@sandboxes/feature-abstractions": "^0.0.20",
         "react": "~16.13.1",
         "rollup": "~2.26.8",
         "rollup-plugin-node-builtins": "~2.1.2",
