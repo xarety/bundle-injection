@@ -1,0 +1,17 @@
+{
+    "name": "@sandboxes/feature-abstractions",
+    "version": "0.0.0",
+    "description": "",
+    "main": "./dist/index.js",
+    "typings": "./dist/index.d.ts",
+    "devDependencies": {
+        "@types/react": "~16.9.38",
+        "react": "~16.13.1"
+    },
+    "peerDependencies": {
+        "react": "~16.13.1"
+    },
+    "cli": {
+        "webpack": false
+    }
+}

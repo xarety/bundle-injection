@@ -1,0 +1,21 @@
+{
+    "name": "@sandboxes/application",
+    "version": "0.0.0",
+    "description": "",
+    "main": "./dist/index.js",
+    "typings": "./dist/index.d.ts",
+    "scripts": {},
+    "dependencies": {
+        "@servicetitan/design-system": "~5.2.0",
+        "@servicetitan/link-item": "~8.0.0",
+        "@sandboxes/feature-abstractions": "^0.0.0",
+        "react": "~16.13.1",
+        "react-dom": "~16.13.1",
+        "react-router-dom": "~5.2.0"
+    },
+    "devDependencies": {
+        "@types/react": "~16.9.38",
+        "@types/react-dom": "~16.9.8",
+        "@types/react-router-dom": "~5.1.5"
+    }
+}
