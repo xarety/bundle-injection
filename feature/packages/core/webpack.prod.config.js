@@ -1,9 +1,9 @@
 module.exports = {
     mode: 'production',
-    entry: {
-        home: './dist/index.js',
-    },
+    entry: './dist/index.js',
     output: {
-        filename: 'dist/bundle/index.js',
+        library: 'Feature',
+        libraryTarget: 'umd',
+        filename: './bundle/index.js',
     },
 };
