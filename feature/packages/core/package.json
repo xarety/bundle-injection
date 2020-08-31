@@ -1,12 +1,12 @@
 {
     "name": "@sandboxes/feature",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",
     "scripts": {},
     "dependencies": {
-        "@sandboxes/feature-abstractions": "^0.0.8",
+        "@sandboxes/feature-abstractions": "^0.0.9",
         "react": "~16.13.1"
     },
     "devDependencies": {
