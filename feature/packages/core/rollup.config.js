@@ -10,15 +10,5 @@ module.exports = {
         dir: 'dist/bundle',
         format: 'es',
     },
-    plugins: [
-        commonjs(),
-        nodeResolve(),
-        globals(),
-        builtins(),
-        postcss({
-            sourceMap: true,
-            extract: true,
-            minimize: true,
-        }),
-    ],
+    plugins: [commonjs(), nodeResolve(), globals(), builtins(), postcss()],
 };
