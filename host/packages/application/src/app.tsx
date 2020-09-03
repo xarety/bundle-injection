@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import { SideNav, Frame, Page, Sidebar } from '@servicetitan/design-system';
 import { SideNavLinkItem } from '@servicetitan/link-item';
 
@@ -9,26 +9,24 @@ import './app.css';
 
 export const App: React.FC = () => (
     <React.StrictMode>
-        <BrowserRouter>
-            <React.Suspense fallback={<div>Loading...</div>}>
-                <Frame>
-                    <Page
-                        sidebar={
-                            <Sidebar>
-                                <Sidebar.Section padding="y">
-                                    <SideNav title="Application">
-                                        <SideNavLinkItem pathname="/" exact>
-                                            Main page
-                                        </SideNavLinkItem>
-                                        <SideNavLinkItem pathname="/second-page">
-                                            Second page
-                                        </SideNavLinkItem>
-                                    </SideNav>
-                                </Sidebar.Section>
-                            </Sidebar>
-                        }
-                        maxWidth="wide"
-                    >
+        <HashRouter>
+            <Frame>
+                <Page
+                    sidebar={
+                        <Sidebar>
+                            <Sidebar.Section padding="y">
+                                <SideNav title="Application">
+                                    <SideNavLinkItem pathname="/" exact>
+                                        Main page
+                                    </SideNavLinkItem>
+                                    <SideNavLinkItem pathname="/feature">Feature</SideNavLinkItem>
+                                </SideNav>
+                            </Sidebar.Section>
+                        </Sidebar>
+                    }
+                    maxWidth="wide"
+                >
+                    <React.Suspense fallback={<div>Loading...</div>}>
                         <Switch>
                             <Route
                                 path="/"
@@ -37,18 +35,18 @@ export const App: React.FC = () => (
                             />
 
                             <Route
-                                path="/second-page"
+                                path="/feature"
                                 component={() => (
                                     <WCLoader
-                                        bundle="https://unpkg.com/@sandboxes/feature-component@1.0.7/dist/bundle/index.js"
+                                        bundle="https://unpkg.com/@sandboxes/feature-component@1.0.8/dist/bundle/index.js"
                                         name="st-feature"
                                     />
                                 )}
                             />
                         </Switch>
-                    </Page>
-                </Frame>
-            </React.Suspense>
-        </BrowserRouter>
+                    </React.Suspense>
+                </Page>
+            </Frame>
+        </HashRouter>
     </React.StrictMode>
 );

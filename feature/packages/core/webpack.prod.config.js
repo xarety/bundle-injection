@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const { createWebpackConfig } = require('@servicetitan/startup');
 
+// will be one of createWebpackConfig presets
 module.exports = createWebpackConfig({
     configuration: {
         mode: 'production',
@@ -14,9 +15,6 @@ module.exports = createWebpackConfig({
         ],
     },
     plugins: {
-        HtmlWebpackPlugin: {
-            templateContent: '',
-        },
         MiniCssExtractPlugin: {
             filename: 'index.css',
         },
