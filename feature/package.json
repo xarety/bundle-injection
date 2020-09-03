@@ -9,7 +9,6 @@
         "start": "startup start",
         "prebuild": "npm run bootstrap",
         "build": "startup build",
-        "postbuild": "lerna --scope @sandboxes/feature exec -- rollup -c rollup.config.js",
         "lint": "startup lint",
         "test": "startup test"
     },
