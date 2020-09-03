@@ -6,12 +6,13 @@ import retargetEvents from 'react-shadow-dom-retarget-events';
 import { App } from './app';
 
 class Feature extends HTMLElement {
+    path = new URL((document.currentScript as HTMLScriptElement).src).origin;
     mountPoint = document.createElement('div');
 
     connectedCallback() {
         const shadowRoot = this.attachShadow({ mode: 'open' });
 
-        shadowRoot.innerHTML = '<link href="./index.css" rel="stylesheet">';
+        shadowRoot.innerHTML = `<link href="${this.path}/index.css" rel="stylesheet">`;
         shadowRoot.appendChild(this.mountPoint);
 
         retargetEvents(shadowRoot);
