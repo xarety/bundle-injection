@@ -11,7 +11,8 @@ class Feature extends HTMLElement {
 
     connectedCallback() {
         const shadowRoot = this.attachShadow({ mode: 'open' });
-
+        const x = document.currentScript;
+        debugger;
         shadowRoot.innerHTML = `<link href="${this.path}/index.css" rel="stylesheet">`;
         shadowRoot.appendChild(this.mountPoint);
 
