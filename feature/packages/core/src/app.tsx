@@ -8,17 +8,17 @@ import './app.css';
 
 export const App: React.FC = () => (
     <React.StrictMode>
-        <HashRouter basename="/feature">
+        <HashRouter>
             <TabGroup>
-                <TabLinkItem pathname="/" exact>
+                <TabLinkItem pathname="/feature" exact>
                     First
                 </TabLinkItem>
-                <TabLinkItem pathname="/second">Second</TabLinkItem>
-                <TabLinkItem pathname="/third">Third</TabLinkItem>
+                <TabLinkItem pathname="/feature/second">Second</TabLinkItem>
+                <TabLinkItem pathname="/feature/third">Third</TabLinkItem>
             </TabGroup>
             <Switch>
                 <Route
-                    path="/"
+                    path="/feature"
                     exact
                     component={() => (
                         <Text className={Styles.red}>
@@ -37,7 +37,7 @@ export const App: React.FC = () => (
                     )}
                 />
                 <Route
-                    path="/second"
+                    path="/feature/second"
                     component={() => (
                         <Text className={Styles.green}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -55,7 +55,7 @@ export const App: React.FC = () => (
                     )}
                 />
                 <Route
-                    path="/third"
+                    path="/feature/third"
                     component={() => (
                         <Text className={Styles.blue}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
