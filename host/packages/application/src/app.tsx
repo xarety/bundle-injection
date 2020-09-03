@@ -3,15 +3,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { SideNav, Frame, Page, Sidebar } from '@servicetitan/design-system';
 import { SideNavLinkItem } from '@servicetitan/link-item';
 
-import './app.css';
+import { WCLoader } from '@sandboxes/platform';
 
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            'st-feature': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-        }
-    }
-}
+import './app.css';
 
 export const App: React.FC = () => (
     <React.StrictMode>
@@ -42,7 +36,15 @@ export const App: React.FC = () => (
                                 component={() => <React.Fragment>Main page</React.Fragment>}
                             />
 
-                            <Route path="/second-page" component={() => <st-feature />} />
+                            <Route
+                                path="/second-page"
+                                component={() => (
+                                    <WCLoader
+                                        bundle="https://unpkg.com/@sandboxes/feature-component@1.0.7/dist/bundle/index.js"
+                                        name="st-feature"
+                                    />
+                                )}
+                            />
                         </Switch>
                     </Page>
                 </Frame>

@@ -6,6 +6,7 @@
     "typings": "./dist/index.d.ts",
     "scripts": {},
     "dependencies": {
+        "@sandboxes/platform": "^0.0.0",
         "@servicetitan/design-system": "~5.2.0",
         "@servicetitan/link-item": "~8.0.0",
         "react": "~16.13.1",

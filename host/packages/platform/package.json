@@ -1,0 +1,21 @@
+{
+    "name": "@sandboxes/platform",
+    "version": "0.0.0",
+    "description": "",
+    "main": "./dist/index.js",
+    "typings": "./dist/index.d.ts",
+    "scripts": {},
+    "devDependencies": {
+        "@types/react": "~16.9.38",
+        "react": "~16.13.1"
+    },
+    "peerDependencies": {
+        "@types/react": "~16.9.38"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "cli": {
+        "webpack": false
+    }
+}
