@@ -5,16 +5,18 @@ import retargetEvents from 'react-shadow-dom-retarget-events';
 
 import { App } from './app';
 
-const currentScript = document.currentScript;
-console.log(currentScript);
+const currentDir = (document.currentScript as HTMLScriptElement).src
+    .split('/')
+    .slice(0, -1)
+    .join('/');
 
 class Feature extends HTMLElement {
     mountPoint = document.createElement('div');
 
     connectedCallback() {
         const shadowRoot = this.attachShadow({ mode: 'open' });
-        console.log(currentScript);
-        shadowRoot.innerHTML = `<link href="./index.css" rel="stylesheet">`;
+
+        shadowRoot.innerHTML = `<link href="${currentDir}/index.css" rel="stylesheet">`;
         shadowRoot.appendChild(this.mountPoint);
 
         retargetEvents(shadowRoot);
