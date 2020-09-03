@@ -5,6 +5,14 @@ import { SideNavLinkItem } from '@servicetitan/link-item';
 
 import './app.css';
 
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            'st-feature': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+        }
+    }
+}
+
 export const App: React.FC = () => (
     <React.StrictMode>
         <BrowserRouter>
@@ -33,10 +41,8 @@ export const App: React.FC = () => (
                                 exact
                                 component={() => <React.Fragment>Main page</React.Fragment>}
                             />
-                            <Route
-                                path="/second-page"
-                                component={() => <React.Fragment>Second page</React.Fragment>}
-                            />
+
+                            <Route path="/second-page" component={() => <st-feature />} />
                         </Switch>
                     </Page>
                 </Frame>

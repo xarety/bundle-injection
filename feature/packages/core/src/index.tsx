@@ -24,4 +24,4 @@ class Feature extends HTMLElement {
     }
 }
 
-window.customElements.define('feature', Feature);
+customElements.define('st-feature', Feature);
