@@ -5,12 +5,16 @@
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",
     "scripts": {},
+    "dependencies": {
+        "react-shadow-dom-retarget-events": "~1.0.11"
+    },
     "devDependencies": {
         "@types/react": "~16.9.38",
+        "@types/react-shadow-dom-retarget-events": "~1.0.0",
         "react": "~16.13.1"
     },
     "peerDependencies": {
-        "@types/react": "~16.9.38"
+        "react": "~16.13.1"
     },
     "publishConfig": {
         "access": "public"
