@@ -1,14 +1,17 @@
+const webpack = require('webpack');
 const { createWebpackConfig } = require('@servicetitan/startup');
+
+const { dependencies } = require('./package.json');
 
 module.exports = createWebpackConfig({
     configuration: {
         mode: 'development',
         entry: [
+            require.resolve('@servicetitan/design-system'),
+            require.resolve('@servicetitan/link-item'),
             require.resolve('react'),
             require.resolve('react-dom'),
             require.resolve('react-router-dom'),
-            require.resolve('@servicetitan/design-system'),
-            require.resolve('@servicetitan/link-item'),
         ],
         module: {
             rules: [
@@ -49,5 +52,23 @@ module.exports = createWebpackConfig({
                 },
             ],
         },
+        plugins: [
+            new webpack.DefinePlugin({
+                // TODO: collect a list of dependencies which can be shared
+                DEPENDENCIES: JSON.stringify(
+                    [
+                        '@servicetitan/design-system',
+                        '@servicetitan/link-item',
+                        'react',
+                        'react-dom',
+                        'react-router-dom',
+                    ].reduce(
+                        (result, dependency) =>
+                            Object.assign(result, { [dependency]: dependencies[dependency] }),
+                        {}
+                    )
+                ),
+            }),
+        ],
     },
 });

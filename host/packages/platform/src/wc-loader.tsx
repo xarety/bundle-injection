@@ -1,21 +1,44 @@
 import React from 'react';
 
+declare global {
+    const DEPENDENCIES: Record<string, string>;
+}
+
+async function getBundleUrl(packageUrl: string) {
+    const { dependencies: packageDependencies } = await (
+        await fetch(`${packageUrl}/package.json`)
+    ).json();
+
+    const isCompatible = Object.entries(DEPENDENCIES).every(([dependency, version]) => {
+        if (!packageDependencies[dependency]) {
+            return true;
+        }
+
+        // TODO: use semver comparison
+        return packageDependencies[dependency] === version;
+    });
+
+    return `${packageUrl}/dist/bundle/${isCompatible ? 'light' : 'full'}/index.js`;
+}
+
 export interface WCLoaderProps {
-    bundle: string;
+    packageUrl: string;
     name: string;
 }
 
-export const WCLoader: React.FC<WCLoaderProps> = ({ bundle, name: WebComponent }) => {
+export const WCLoader: React.FC<WCLoaderProps> = ({ packageUrl, name: WebComponent }) => {
     const Loader = React.useMemo(
         () =>
             React.lazy(async () => {
-                if (Array.from(document.scripts).every(({ src }) => src !== bundle)) {
+                const bundleUrl = await getBundleUrl(packageUrl);
+
+                if (Array.from(document.scripts).every(({ src }) => src !== bundleUrl)) {
                     await new Promise(resolve => {
                         const script = document.createElement('script');
 
                         script.onload = resolve;
                         script.async = true;
-                        script.src = bundle;
+                        script.src = bundleUrl;
 
                         document.body.append(script);
                     });
@@ -23,7 +46,7 @@ export const WCLoader: React.FC<WCLoaderProps> = ({ bundle, name: WebComponent }
 
                 return { default: () => <WebComponent /> };
             }),
-        [bundle, WebComponent]
+        [packageUrl, WebComponent]
     );
 
     return <Loader />;

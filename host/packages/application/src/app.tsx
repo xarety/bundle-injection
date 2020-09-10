@@ -38,7 +38,7 @@ export const App: React.FC = () => (
                                 path="/feature"
                                 component={() => (
                                     <WCLoader
-                                        bundle="https://unpkg.com/@sandboxes/feature-component@1.5.1/dist/bundle/light/index.js"
+                                        packageUrl="https://unpkg.com/@sandboxes/feature-component@1.5.1"
                                         name="st-feature"
                                     />
                                 )}
