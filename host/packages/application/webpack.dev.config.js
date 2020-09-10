@@ -3,6 +3,13 @@ const { createWebpackConfig } = require('@servicetitan/startup');
 module.exports = createWebpackConfig({
     configuration: {
         mode: 'development',
+        entry: [
+            require.resolve('react'),
+            require.resolve('react-dom'),
+            require.resolve('react-router-dom'),
+            require.resolve('@servicetitan/design-system'),
+            require.resolve('@servicetitan/link-item'),
+        ],
         module: {
             rules: [
                 {
@@ -30,14 +37,14 @@ module.exports = createWebpackConfig({
                     test: require.resolve('@servicetitan/design-system'),
                     loader: 'expose-loader',
                     options: {
-                        exposes: 'ServiceTitan_DesignSystem',
+                        exposes: 'ServiceTitan.DesignSystem',
                     },
                 },
                 {
                     test: require.resolve('@servicetitan/link-item'),
                     loader: 'expose-loader',
                     options: {
-                        exposes: 'ServiceTitan_LinkItem',
+                        exposes: 'ServiceTitan.LinkItem',
                     },
                 },
             ],

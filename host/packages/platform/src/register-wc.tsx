@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import retargetEvents from 'react-shadow-dom-retarget-events';
 
-export function registerWC(name: string, Component: React.ComponentType) {
+export function registerWC(name: string, Component: React.ComponentType, useShadow = false) {
     const currentDir = (document.currentScript as HTMLScriptElement).src
         .split('/')
         .slice(0, -1)
@@ -13,13 +13,15 @@ export function registerWC(name: string, Component: React.ComponentType) {
         mountPoint = document.createElement('div');
 
         connectedCallback() {
-            const shadowRoot = this.attachShadow({ mode: 'open' });
-            shadowRoot.innerHTML = `<link href="${currentDir}/index.css" rel="stylesheet">`;
-            shadowRoot.appendChild(this.mountPoint);
+            const root = useShadow ? this.attachShadow({ mode: 'open' }) : this;
+            root.innerHTML = `<link href="${currentDir}/index.css" rel="stylesheet">`;
+            root.appendChild(this.mountPoint);
 
             ReactDOM.render(<Component />, this.mountPoint);
 
-            retargetEvents(shadowRoot);
+            if (useShadow) {
+                retargetEvents(root as ShadowRoot);
+            }
         }
 
         disconnectedCallback() {
