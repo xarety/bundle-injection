@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import retargetEvents from 'react-shadow-dom-retarget-events';
 
-export function registerWC(name: string, Component: React.ComponentType, useShadow = false) {
+export function registerWC(name: string, Component: React.ComponentType, useShadow = true) {
     const currentDir = (document.currentScript as HTMLScriptElement).src
         .split('/')
         .slice(0, -1)

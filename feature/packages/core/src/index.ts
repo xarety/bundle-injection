@@ -7,6 +7,7 @@ declare global {
 
 if (BUNDLE_TYPE === 'full') {
     require('./vendor.css');
+    registerWC('st-feature', App, true);
+} else {
+    registerWC('st-feature', App, false);
 }
-
-registerWC('st-feature', App);
