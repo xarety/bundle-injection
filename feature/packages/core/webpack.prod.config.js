@@ -21,8 +21,8 @@ module.exports = createWebpackConfig({
         externals:
             process.env.BUNDLE_TYPE === 'light'
                 ? {
-                      '@servicetitan/design-system': 'ServiceTitan_DesignSystem',
-                      '@servicetitan/link-item': 'ServiceTitan_LinkItem',
+                      '@servicetitan/design-system': 'ServiceTitan.DesignSystem',
+                      '@servicetitan/link-item': 'ServiceTitan.LinkItem',
                       'react': 'React',
                       'react-dom': 'ReactDOM',
                       'react-router-dom': 'ReactRouterDOM',
