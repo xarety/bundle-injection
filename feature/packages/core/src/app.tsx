@@ -4,7 +4,6 @@ import { TabGroup, Text } from '@servicetitan/design-system';
 import { TabLinkItem } from '@servicetitan/link-item';
 
 import * as Styles from './app.module.css';
-import './app.css';
 
 export const App: React.FC = () => (
     <React.StrictMode>
