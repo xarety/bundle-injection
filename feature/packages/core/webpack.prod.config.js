@@ -21,11 +21,11 @@ module.exports = createWebpackConfig({
         externals:
             process.env.BUNDLE_TYPE === 'light'
                 ? {
-                      '@servicetitan/design-system': 'umd @servicetitan/design-system',
-                      '@servicetitan/link-item': 'umd @servicetitan/link-item',
-                      'react': 'umd react',
-                      'react-dom': 'umd react-dom',
-                      'react-router-dom': 'umd react-router-dom',
+                      '@servicetitan/design-system': 'ServiceTitan_DesignSystem',
+                      '@servicetitan/link-item': 'ServiceTitan_LinkItem',
+                      'react': 'React',
+                      'react-dom': 'ReactDOM',
+                      'react-router-dom': 'ReactRouterDOM',
                   }
                 : undefined,
     },

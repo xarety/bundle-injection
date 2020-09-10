@@ -15,6 +15,7 @@
         "test": "startup test"
     },
     "devDependencies": {
-        "@servicetitan/startup": "~8.0.0"
+        "@servicetitan/startup": "~8.0.0",
+        "expose-loader": "~1.0.0"
     }
 }
