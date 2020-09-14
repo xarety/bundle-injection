@@ -1,12 +1,12 @@
 {
     "name": "@sandboxes/application",
-    "version": "7.5.0",
+    "version": "7.6.0",
     "description": "",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",
     "scripts": {},
     "dependencies": {
-        "@sandboxes/platform": "^7.5.0",
+        "@sandboxes/platform": "^7.6.0",
         "@servicetitan/design-system": "~5.2.0",
         "@servicetitan/link-item": "~8.0.0",
         "react": "~16.13.1",
