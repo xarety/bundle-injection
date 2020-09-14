@@ -1,74 +1,32 @@
-const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { createWebpackConfig } = require('@servicetitan/startup');
+const { merge } = require('webpack-merge');
 
-const { dependencies } = require('./package.json');
+const common = require('./webpack.common.config.js');
 
-module.exports = createWebpackConfig({
-    configuration: {
+const config = createWebpackConfig({
+    configuration: merge(common, {
         mode: 'development',
-        entry: [
-            require.resolve('@servicetitan/design-system'),
-            require.resolve('@servicetitan/link-item'),
-            require.resolve('react'),
-            require.resolve('react-dom'),
-            require.resolve('react-router-dom'),
-        ],
         module: {
             rules: [
                 {
-                    test: require.resolve('react'),
-                    loader: 'expose-loader',
-                    options: {
-                        exposes: 'React',
-                    },
-                },
-                {
-                    test: require.resolve('react-dom'),
-                    loader: 'expose-loader',
-                    options: {
-                        exposes: 'ReactDOM',
-                    },
-                },
-                {
-                    test: require.resolve('react-router-dom'),
-                    loader: 'expose-loader',
-                    options: {
-                        exposes: 'ReactRouterDOM',
-                    },
-                },
-                {
-                    test: require.resolve('@servicetitan/design-system'),
-                    loader: 'expose-loader',
-                    options: {
-                        exposes: 'ServiceTitan.DesignSystem',
-                    },
-                },
-                {
-                    test: require.resolve('@servicetitan/link-item'),
-                    loader: 'expose-loader',
-                    options: {
-                        exposes: 'ServiceTitan.LinkItem',
-                    },
+                    test: /design-system.css$/,
+                    use: [MiniCssExtractPlugin.loader, 'css-loader'],
                 },
             ],
         },
         plugins: [
-            new webpack.DefinePlugin({
-                // TODO: collect a list of dependencies which can be shared
-                DEPENDENCIES: JSON.stringify(
-                    [
-                        '@servicetitan/design-system',
-                        '@servicetitan/link-item',
-                        'react',
-                        'react-dom',
-                        'react-router-dom',
-                    ].reduce(
-                        (result, dependency) =>
-                            Object.assign(result, { [dependency]: dependencies[dependency] }),
-                        {}
-                    )
-                ),
+            new MiniCssExtractPlugin({
+                filename: '[name].[contenthash:8].bundle.css',
+                chunkFilename: '[name].[contenthash:8].bundle.css',
             }),
         ],
-    },
+    }),
 });
+
+const rule = config.module.rules.find(({ test }) => test.toString() === /(\.css)$/.toString());
+
+const originExclude = rule.exclude;
+rule.exclude = path => originExclude.test(path) || /design-system.css$/.test(path);
+
+module.exports = config;

@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import './design-system.css';
+
 import { App } from './app';
 
 const appContainer = document.createElement('div');
