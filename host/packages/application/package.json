@@ -9,6 +9,7 @@
         "@sandboxes/platform": "^7.6.1",
         "@servicetitan/design-system": "~5.2.0",
         "@servicetitan/link-item": "~8.0.0",
+        "axios": "~0.20.0",
         "react": "~16.13.1",
         "react-dom": "~16.13.1",
         "react-router-dom": "~5.2.0"

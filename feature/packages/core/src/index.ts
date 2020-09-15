@@ -1,5 +1,8 @@
 import { registerWC } from '@sandboxes/platform';
 import { App } from './app';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://yandex.ru/';
 
 declare global {
     const BUNDLE_TYPE: 'full' | 'light';
