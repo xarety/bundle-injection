@@ -1,6 +1,6 @@
 {
     "name": "@sandboxes/feature-component",
-    "version": "1.5.7",
+    "version": "1.5.9",
     "description": "",
     "main": "./dist/bundle/index.js",
     "typings": "./dist/bundle/index.d.ts",
