@@ -1,5 +1,5 @@
 {
-	    "name": "feature",
+    "name": "feature",
     "version": "0.0.0",
     "description": "",
     "private": true,
@@ -7,10 +7,11 @@
         "bootstrap": "npx lerna@3 bootstrap --hoist",
         "prestart": "npm run bootstrap",
         "start": "startup start",
-        "prebuild": "npm run bootstrap",
+        "prebuild": "npm run bootstrap && startup build",
         "build": "npm run build:full && npm run build:light",
-        "build:full": "cross-env BUNDLE_TYPE=full startup build",
-        "build:light": "cross-env BUNDLE_TYPE=light startup build",
+        "build:full": "cross-env BUNDLE_TYPE=full npm run rollup",
+        "build:light": "cross-env BUNDLE_TYPE=light npm run rollup",
+        "rollup": "lerna exec -- rollup -c rollup.config.js",
         "lint": "startup lint",
         "test": "startup test"
     },
