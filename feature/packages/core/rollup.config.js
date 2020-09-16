@@ -6,9 +6,18 @@ const postcss = require('rollup-plugin-postcss');
 
 module.exports = {
     input: './dist/index.js',
+    context: 'window',
     output: {
         dir: 'dist/bundle',
         format: 'es',
     },
-    plugins: [commonjs(), nodeResolve(), globals(), builtins(), postcss()],
+    plugins: [
+        commonjs(),
+        nodeResolve({
+            preferBuiltins: true,
+        }),
+        globals(),
+        builtins(),
+        postcss(),
+    ],
 };

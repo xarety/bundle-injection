@@ -11,7 +11,7 @@
         "build": "npm run build:full && npm run build:light",
         "build:full": "cross-env BUNDLE_TYPE=full npm run rollup",
         "build:light": "cross-env BUNDLE_TYPE=light npm run rollup",
-        "rollup": "lerna exec -- rollup -c rollup.config.js",
+        "rollup": "lerna exec -- rollup -m --sourcemapExcludeSources -c rollup.config.js",
         "lint": "startup lint",
         "test": "startup test"
     },
