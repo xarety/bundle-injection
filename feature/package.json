@@ -13,7 +13,6 @@
         "test": "startup test"
     },
     "devDependencies": {
-        "@sandboxes/startup": "~8.0.9",
-        "typescript": "~4.0.3"
+        "@sandboxes/startup": "~8.1.0"
     }
 }
