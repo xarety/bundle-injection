@@ -1,13 +1,13 @@
-import { registerWC } from '@sandboxes/platform';
+import { WebComponents, WebComponent } from '@sandboxes/startup';
 import { App } from './app';
 
 declare global {
-    const BUNDLE_TYPE: 'full' | 'light';
+    const WEB_COMPONENT: WebComponent;
 }
 
-if (BUNDLE_TYPE === 'full') {
+if (WEB_COMPONENT === WebComponent.Full) {
     require('./vendor.css');
-    registerWC('st-feature', App, false);
+    WebComponents.register('st-feature', App, false);
 } else {
-    registerWC('st-feature', App, true);
+    WebComponents.register('st-feature', App, true);
 }

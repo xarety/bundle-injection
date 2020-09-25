@@ -9,7 +9,17 @@ import { getFolders, readJson } from '../cli/utils';
 
 import { Options, WebComponent } from '.';
 
-const sharedDependencies: Record<string, string> = require('./shared-dependencies.json');
+const sharedDependencies = {
+    '@servicetitan/design-system': 'ServiceTitan.DesignSystem',
+    'classnames': 'ClassNames',
+    'formstate': 'FormState',
+    'mobx': 'MobX',
+    'mobx-react': 'MobXReact',
+    'mobx-utils': 'MobXUtils',
+    'react': 'React',
+    'react-dom': 'ReactDOM',
+    'react-router-dom': 'ReactRouterDOM',
+};
 
 export interface Overrides {
     configuration?: Configuration;

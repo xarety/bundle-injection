@@ -1,6 +1,6 @@
 {
     "name": "@sandboxes/platform",
-    "version": "8.0.3",
+    "version": "8.0.5",
     "description": "",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",

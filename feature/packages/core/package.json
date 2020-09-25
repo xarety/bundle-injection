@@ -5,7 +5,7 @@
     "main": "./dist/bundle/index.js",
     "typings": "./dist/bundle/index.d.ts",
     "dependencies": {
-        "@sandboxes/platform": "~7.6.1",
+        "@sandboxes/startup": "~8.0.3",
         "@servicetitan/design-system": "~5.2.0",
         "@servicetitan/link-item": "~8.0.0",
         "react": "~16.13.1",
@@ -19,5 +19,8 @@
     },
     "publishConfig": {
         "access": "public"
+    },
+    "cli": {
+        "web-component": true
     }
 }
