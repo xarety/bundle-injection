@@ -1,6 +1,6 @@
 {
-    "name": "@sandboxes/platform",
-    "version": "8.0.7",
+    "name": "@sandboxes/web-components",
+    "version": "8.0.9",
     "description": "",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",
@@ -10,11 +10,13 @@
     },
     "devDependencies": {
         "@types/react": "~16.9.49",
+        "@types/react-dom": "~16.9.8",
         "@types/react-shadow-dom-retarget-events": "~1.0.0",
         "react": "~16.13.1"
     },
     "peerDependencies": {
-        "react": "~16.13.1"
+        "react": "~16.13.1",
+        "react-dom": "~16.13.1"
     },
     "publishConfig": {
         "access": "public"
