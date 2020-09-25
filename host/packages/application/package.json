@@ -1,12 +1,12 @@
 {
     "name": "@sandboxes/application",
-    "version": "8.0.1",
+    "version": "8.0.3",
     "description": "",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",
     "scripts": {},
     "dependencies": {
-        "@sandboxes/platform": "^8.0.1",
+        "@sandboxes/platform": "^8.0.3",
         "@servicetitan/design-system": "~5.2.0",
         "@servicetitan/link-item": "~8.0.0",
         "react": "~16.13.1",
@@ -20,5 +20,6 @@
     },
     "publishConfig": {
         "access": "public"
-    }
+    },
+    "gitHead": "0b33112f382f9f4dda35f6598352cd64f2a2acd7"
 }
