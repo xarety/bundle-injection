@@ -2,8 +2,7 @@
     "extends": "@servicetitan/startup/tsconfig/base",
     "compilerOptions": {
         "outDir": "dist",
-        "rootDir": "src",
-        "resolveJsonModule": true
+        "rootDir": "src"
     },
     "include": ["src/**/*"],
     "exclude": ["src/**/__tests__/**/*"]

@@ -3,7 +3,7 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 import { SideNav, Frame, Page, Sidebar } from '@servicetitan/design-system';
 import { SideNavLinkItem } from '@servicetitan/link-item';
 
-import { WCLoader } from '@sandboxes/platform';
+import { Loader } from '@sandboxes/web-components';
 
 import './app.css';
 
@@ -37,7 +37,7 @@ export const App: React.FC = () => (
                             <Route
                                 path="/feature"
                                 component={() => (
-                                    <WCLoader
+                                    <Loader
                                         packageUrl="https://unpkg.com/@sandboxes/feature-component@1.5.7"
                                         name="st-feature"
                                     />
