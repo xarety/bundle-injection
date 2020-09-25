@@ -79,6 +79,5 @@
     },
     "cli": {
         "webpack": false
-    },
-    "gitHead": "0b33112f382f9f4dda35f6598352cd64f2a2acd7"
+    }
 }
