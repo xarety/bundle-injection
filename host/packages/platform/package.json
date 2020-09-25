@@ -1,6 +1,6 @@
 {
     "name": "@sandboxes/platform",
-    "version": "8.0.0",
+    "version": "8.0.1",
     "description": "",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",
@@ -9,7 +9,7 @@
         "react-shadow-dom-retarget-events": "~1.0.11"
     },
     "devDependencies": {
-        "@types/react": "~16.9.38",
+        "@types/react": "~16.9.49",
         "@types/react-shadow-dom-retarget-events": "~1.0.0",
         "react": "~16.13.1"
     },
