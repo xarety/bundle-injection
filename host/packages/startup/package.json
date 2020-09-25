@@ -1,6 +1,6 @@
 {
     "name": "@sandboxes/startup",
-    "version": "7.6.1",
+    "version": "8.0.0",
     "description": "",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",
