@@ -1,13 +1,13 @@
 {
     "name": "@sandboxes/application",
-    "version": "8.0.9",
+    "version": "8.1.0",
     "description": "",
     "private": true,
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",
     "scripts": {},
     "dependencies": {
-        "@sandboxes/web-components": "^8.0.9",
+        "@sandboxes/web-components": "^8.1.0",
         "@servicetitan/design-system": "~5.2.0",
         "@servicetitan/link-item": "~8.0.0",
         "react": "~16.13.1",
