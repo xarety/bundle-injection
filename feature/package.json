@@ -1,5 +1,5 @@
 {
-	    "name": "feature",
+    "name": "feature",
     "version": "0.0.0",
     "description": "",
     "private": true,
@@ -8,14 +8,12 @@
         "prestart": "npm run bootstrap",
         "start": "startup start",
         "prebuild": "npm run bootstrap",
-        "build": "npm run build:full && npm run build:light",
-        "build:full": "cross-env BUNDLE_TYPE=full startup build",
-        "build:light": "cross-env BUNDLE_TYPE=light startup build",
+        "build": "startup build",
         "lint": "startup lint",
         "test": "startup test"
     },
     "devDependencies": {
-        "@servicetitan/startup": "~8.0.0",
-        "cross-env": "7.0.2"
+        "@sandboxes/startup": "~8.0.5",
+        "typescript": "~4.0.3"
     }
 }
