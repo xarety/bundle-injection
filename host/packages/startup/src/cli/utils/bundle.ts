@@ -24,6 +24,7 @@ export function isCustomStyleRules() {
 }
 
 export function isWebComponent() {
+    console.log(readJson('./package.json').cli);
     return readJson('./package.json').cli?.['web-component'] === true;
 }
 
