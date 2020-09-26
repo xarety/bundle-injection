@@ -30,15 +30,17 @@ export interface Overrides {
 
 export function createConfig(
     { configuration, plugins = {} }: Overrides,
-    { customStyleRules, exposeSharedDependencies, webComponent }: Options = {}
+    options: Options = {}
 ): Configuration {
     const {
         WriteFilePlugin: writeFilePluginOptions,
         WatchIgnorePlugin: watchIgnorePluginOptions,
     } = plugins;
 
+    const { customStyleRules, exposeSharedDependencies, webComponent } = options;
+
     return merge(
-        createSharedConfig({ plugins }),
+        createSharedConfig({ plugins }, options),
         {
             devtool: 'cheap-module-source-map',
             devServer: {

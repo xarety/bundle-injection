@@ -22,15 +22,17 @@ const cdnPath = process.env.CLIENT_CDN_PATH;
 
 export function createConfig(
     { configuration, plugins = {} }: Overrides,
-    { customStyleRules, webComponent }: Options = {}
+    options: Options = {}
 ): Configuration {
     const {
         CleanWebpackPlugin: cleanWebpackPluginOptions,
         MiniCssExtractPlugin: miniCssExtractPluginOptions,
     } = plugins;
 
+    const { customStyleRules, webComponent } = options;
+
     return merge(
-        createSharedConfig({ plugins }),
+        createSharedConfig({ plugins }, options),
         {
             devtool: 'source-map',
             module: {
