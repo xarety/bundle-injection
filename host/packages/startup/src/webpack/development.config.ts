@@ -106,7 +106,11 @@ export function createConfig(
                     : []),
             ],
             output: {
-                filename: '[name].bundle.js',
+                ...(!webComponent
+                    ? {
+                          filename: '[name].bundle.js',
+                      }
+                    : {}),
             },
         },
         configuration

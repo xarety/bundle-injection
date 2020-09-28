@@ -73,8 +73,12 @@ export function createConfig(
                     : []),
             ],
             output: {
-                filename: '[name].[contenthash:8].bundle.js',
-                chunkFilename: '[name].[contenthash:8].bundle.js',
+                ...(!webComponent
+                    ? {
+                          filename: '[name].[contenthash:8].bundle.js',
+                          chunkFilename: '[name].[contenthash:8].bundle.js',
+                      }
+                    : {}),
             },
         },
         configuration,
