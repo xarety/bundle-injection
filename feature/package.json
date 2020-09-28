@@ -13,6 +13,6 @@
         "test": "startup test"
     },
     "devDependencies": {
-        "@sandboxes/startup": "~8.2.10"
+        "@sandboxes/startup": "~8.2.11"
     }
 }
