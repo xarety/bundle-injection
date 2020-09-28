@@ -18,7 +18,6 @@ const sharedDependencies = {
     'mobx-utils': 'MobXUtils',
     'react': 'React',
     'react-dom': 'ReactDOM',
-    'react-router-dom': 'ReactRouterDOM',
 };
 
 export interface Overrides {
