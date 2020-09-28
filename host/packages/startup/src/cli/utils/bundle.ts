@@ -103,7 +103,7 @@ export async function bundle() {
         await run(
             createWebpackConfig(
                 {
-                    configuration: { mode: 'production' },
+                    configuration: { mode: 'development' },
                 },
                 { webComponent: WebComponent.Light }
             )
@@ -112,7 +112,7 @@ export async function bundle() {
         return run(
             createWebpackConfig(
                 {
-                    configuration: { mode: 'production' },
+                    configuration: { mode: 'development' },
                 },
                 { webComponent: WebComponent.Full }
             )
