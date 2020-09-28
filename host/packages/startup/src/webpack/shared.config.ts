@@ -11,11 +11,7 @@ import { Options, WebComponent } from '.';
 
 const sharedDependencies = {
     '@servicetitan/design-system': 'ServiceTitan.DesignSystem',
-    'classnames': 'ClassNames',
-    'formstate': 'FormState',
-    'mobx': 'MobX',
-    'mobx-react': 'MobXReact',
-    'mobx-utils': 'MobXUtils',
+    '@servicetitan/link-item': 'ServiceTitan.LinkItem',
     'react': 'React',
     'react-dom': 'ReactDOM',
     'react-router-dom': 'ReactRouterDOM',
