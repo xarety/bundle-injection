@@ -38,7 +38,7 @@ export const App: React.FC = () => (
                                 path="/feature"
                                 component={() => (
                                     <Loader
-                                        packageUrl="https://unpkg.com/@sandboxes/feature-component@1.8.9"
+                                        packageUrl="https://unpkg.com/@sandboxes/feature-component@1.8.10"
                                         name="st-feature"
                                     />
                                 )}
