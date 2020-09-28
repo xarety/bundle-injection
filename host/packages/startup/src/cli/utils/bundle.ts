@@ -79,6 +79,8 @@ export async function bundle() {
             );
         }
 
+        console.log(config);
+
         const stats = await util.promisify<webpack.Configuration, webpack.Stats>(webpack)(config);
 
         if (stats.hasErrors()) {
@@ -183,6 +185,8 @@ export async function bundleWatch() {
             }
         );
     }
+
+    console.log(config);
 
     const server = new WebpackDevServer(webpack(config), devServer);
 
