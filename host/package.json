@@ -9,14 +9,10 @@
         "start": "startup start",
         "prebuild": "npm run bootstrap",
         "build": "startup build",
-        "preserve": "npm run build",
-        "serve": "npx http-server ./packages/application/dist/bundle",
         "lint": "startup lint",
         "test": "startup test"
     },
     "devDependencies": {
-        "@servicetitan/startup": "~8.0.0",
-        "expose-loader": "~1.0.0",
-        "webpack-merge": "~5.1.4"
+        "@sandboxes/startup": "~8.1.3"
     }
 }

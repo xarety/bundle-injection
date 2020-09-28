@@ -96,10 +96,10 @@ export function createConfig(
                     },
                     ...(exposeSharedDependencies
                         ? Object.entries(sharedDependencies).map(([dependency, variable]) => ({
-                              test: require.resolve(variable),
+                              test: require.resolve(dependency),
                               loader: 'expose-loader',
                               options: {
-                                  exposes: dependency,
+                                  exposes: variable,
                               },
                           }))
                         : []),
