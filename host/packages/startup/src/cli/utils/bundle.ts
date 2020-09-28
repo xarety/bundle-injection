@@ -79,8 +79,6 @@ export async function bundle() {
             );
         }
 
-        console.log(config);
-
         const stats = await util.promisify<webpack.Configuration, webpack.Stats>(webpack)(config);
 
         if (stats.hasErrors()) {
@@ -103,7 +101,7 @@ export async function bundle() {
         await run(
             createWebpackConfig(
                 {
-                    configuration: { mode: 'development' },
+                    configuration: { mode: 'production' },
                 },
                 { webComponent: WebComponent.Light }
             )
@@ -112,7 +110,7 @@ export async function bundle() {
         return run(
             createWebpackConfig(
                 {
-                    configuration: { mode: 'development' },
+                    configuration: { mode: 'production' },
                 },
                 { webComponent: WebComponent.Full }
             )
@@ -185,8 +183,6 @@ export async function bundleWatch() {
             }
         );
     }
-
-    console.log(config);
 
     const server = new WebpackDevServer(webpack(config), devServer);
 
