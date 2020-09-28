@@ -9,7 +9,7 @@
     "dependencies": {
         "@sandboxes/web-components": "^8.1.5",
         "@servicetitan/design-system": "~5.2.0",
-        "@servicetitan/link-item": "~8.0.0",
+        "@servicetitan/link-item": "~9.0.4",
         "classnames": "~2.2.6",
         "formstate": "~1.3.0",
         "mobx": "~5.15.7",
