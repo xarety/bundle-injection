@@ -110,10 +110,20 @@ export function createConfig(
                     hash: true,
                     ...(webComponent
                         ? {
-                              template: path.resolve(__dirname, './web-component.ejs'),
-                              templateParameters: {
-                                  WEB_COMPONENT_NAME: cli['web-component'],
-                              },
+                              inject: false,
+                              templateContent: ({ htmlWebpackPlugin }) => `
+                                <!DOCTYPE html>
+                                <html>
+                                    <head>
+                                        ${htmlWebpackPlugin.tags.headTags}
+                                    </head>
+                                    <body>
+                                        <${cli['web-component']} />
+
+                                        ${htmlWebpackPlugin.tags.bodyTags}
+                                    </body>
+                                </html>
+                              `,
                           }
                         : {}),
                     ...htmlWebpackPluginOptions,
