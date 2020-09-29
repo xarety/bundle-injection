@@ -24,7 +24,7 @@ export function isCustomStyleRules() {
 }
 
 export function isWebComponent() {
-    return readJson('./package.json').cli?.['web-component'] === true;
+    return readJson('./package.json').cli?.['web-component'] !== undefined;
 }
 
 export async function bundle() {
