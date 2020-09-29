@@ -54,7 +54,7 @@ export function createConfig(
                               {
                                   test: /\.module.css$/,
                                   use: [
-                                      'style-loader',
+                                      webComponent ? MiniCssExtractPlugin.loader : 'style-loader',
                                       {
                                           loader: 'css-loader',
                                           options: {
@@ -75,7 +75,10 @@ export function createConfig(
 
                                       return path.endsWith('.module.css');
                                   },
-                                  use: ['style-loader', 'css-loader'],
+                                  use: [
+                                      webComponent ? MiniCssExtractPlugin.loader : 'style-loader',
+                                      'css-loader',
+                                  ],
                               },
                           ]
                         : []),
@@ -95,15 +98,12 @@ export function createConfig(
                 ...(exposeSharedDependencies
                     ? [
                           new MiniCssExtractPlugin({
-                              ...(webComponent
-                                  ? { filename: 'index.css' }
-                                  : {
-                                        filename: '[name].[contenthash:8].bundle.css',
-                                        chunkFilename: '[name].[contenthash:8].bundle.css',
-                                    }),
+                              filename: '[name].[contenthash:8].bundle.css',
+                              chunkFilename: '[name].[contenthash:8].bundle.css',
                           }),
                       ]
                     : []),
+                ...(webComponent ? [new MiniCssExtractPlugin({ filename: 'index.css' })] : []),
             ],
             output: {
                 ...(!webComponent
