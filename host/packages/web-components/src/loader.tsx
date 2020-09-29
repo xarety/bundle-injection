@@ -1,40 +1,36 @@
 import React from 'react';
 
 declare global {
-    const DEPENDENCIES: Record<string, string>;
+    const EXPOSED_DEPENDENCIES: Record<string, string>;
 }
 
 async function getBundleInfo(packageUrl: string) {
-    const {
-        dependencies: packageDependencies,
-        cli: { 'web-component': WebComponent },
-    } = await (await fetch(`${packageUrl}/package.json`)).json();
+    const { dependencies, cli } = await (await fetch(`${packageUrl}/package.json`)).json();
 
-    const isCompatible = Object.entries(DEPENDENCIES).every(([dependency, version]) => {
-        if (!packageDependencies[dependency]) {
+    const isCompatible = Object.entries(EXPOSED_DEPENDENCIES).every(([dependency, version]) => {
+        if (!dependencies[dependency]) {
             return true;
         }
 
         // TODO: use semver comparison
-        return packageDependencies[dependency] === version;
+        return dependencies[dependency] === version;
     });
 
     return {
         url: `${packageUrl}/dist/bundle/${isCompatible ? 'light' : 'full'}/index.js`,
-        WebComponent,
+        WebComponent: cli['web-component'],
     };
 }
 
 export interface LoaderProps {
-    packageUrl: string;
-    name: string;
+    src: string;
 }
 
-export const Loader: React.FC<LoaderProps> = ({ packageUrl }) => {
+export const Loader: React.FC<LoaderProps> = ({ src }) => {
     const Loader = React.useMemo(
         () =>
             React.lazy(async () => {
-                const { url, WebComponent } = await getBundleInfo(packageUrl);
+                const { url, WebComponent } = await getBundleInfo(src);
 
                 if (Array.from(document.scripts).every(({ src }) => src !== url)) {
                     await new Promise(resolve => {
@@ -50,7 +46,7 @@ export const Loader: React.FC<LoaderProps> = ({ packageUrl }) => {
 
                 return { default: () => <WebComponent /> };
             }),
-        [packageUrl]
+        [src]
     );
 
     return <Loader />;

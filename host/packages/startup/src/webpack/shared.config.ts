@@ -32,7 +32,7 @@ export function createConfig(
     { exposeSharedDependencies, webComponent }: Options = {}
 ): Configuration {
     const { destination } = getFolders();
-    const { dependencies } = readJson('./package.json');
+    const { dependencies, cli } = readJson('./package.json');
 
     const { HtmlWebpackPlugin: htmlWebpackPluginOptions } = plugins;
 
@@ -113,7 +113,7 @@ export function createConfig(
                 ...(exposeSharedDependencies
                     ? [
                           new DefinePlugin({
-                              DEPENDENCIES: JSON.stringify(
+                              EXPOSED_DEPENDENCIES: JSON.stringify(
                                   Object.keys(sharedDependencies).reduce(
                                       (result, dependency) =>
                                           Object.assign(result, {
@@ -131,8 +131,10 @@ export function createConfig(
                               maxChunks: 1,
                           }),
                           new DefinePlugin({
-                              // eslint-disable-next-line @typescript-eslint/naming-convention
-                              WEB_COMPONENT: JSON.stringify(webComponent),
+                              WEB_COMPONENT_NAME: JSON.stringify(cli['web-component']),
+                              WEB_COMPONENT_LIGHT: JSON.stringify(
+                                  webComponent === WebComponent.Light
+                              ),
                           }),
                       ]
                     : []),
