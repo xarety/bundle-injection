@@ -5,7 +5,7 @@
     "main": "./dist/bundle/index.js",
     "typings": "./dist/bundle/index.d.ts",
     "dependencies": {
-        "@sandboxes/web-components": "~8.3.1",
+        "@sandboxes/web-components": "~8.3.3",
         "@servicetitan/design-system": "~5.2.0",
         "@servicetitan/link-item": "~9.1.0",
         "react": "~16.13.1",

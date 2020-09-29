@@ -110,7 +110,7 @@ export function createConfig(
                     hash: true,
                     ...(webComponent
                         ? {
-                              template: path.resolve('./web-component.ejs'),
+                              template: require.resolve('./web-component.ejs'),
                               templateParameters: {
                                   WEB_COMPONENT_NAME: cli['web-component'],
                               },
