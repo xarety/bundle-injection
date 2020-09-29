@@ -108,6 +108,14 @@ export function createConfig(
                 new HtmlWebpackPlugin({
                     title: 'ServiceTitan',
                     hash: true,
+                    ...(webComponent
+                        ? {
+                              template: path.resolve('./web-component.ejs'),
+                              templateParameters: {
+                                  WEB_COMPONENT_NAME: cli['web-component'],
+                              },
+                          }
+                        : {}),
                     ...htmlWebpackPluginOptions,
                 }),
                 ...(exposeSharedDependencies
