@@ -37,7 +37,7 @@ export const App: React.FC = () => (
                             <Route
                                 path="/feature"
                                 component={() => (
-                                    <Loader src="https://unpkg.com/@sandboxes/feature-component@1.8.11" />
+                                    <Loader src="https://unpkg.com/@sandboxes/feature-component@1.9.1" />
                                 )}
                             />
                         </Switch>
