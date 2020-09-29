@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 
 import retargetEvents from 'react-shadow-dom-retarget-events';
 
-export function register(name: string, Component: React.ComponentType, lightweight: boolean) {
+declare global {
+    const WEB_COMPONENT_NAME: string;
+}
+
+export function register(Component: React.ComponentType, light: boolean) {
     const currentDir = (document.currentScript as HTMLScriptElement).src
         .split('/')
         .slice(0, -1)
@@ -16,7 +20,7 @@ export function register(name: string, Component: React.ComponentType, lightweig
             const root = this.attachShadow({ mode: 'open' });
             root.innerHTML = `<link href="${currentDir}/index.css" rel="stylesheet">`;
 
-            if (lightweight) {
+            if (light) {
                 const designSystem = Array.from(document.styleSheets).find(
                     ({ href }) => href && /design-system.+\.bundle.css/.test(href)
                 );
@@ -38,5 +42,5 @@ export function register(name: string, Component: React.ComponentType, lightweig
         }
     }
 
-    customElements.define(name, WebComponent);
+    customElements.define(WEB_COMPONENT_NAME, WebComponent);
 }

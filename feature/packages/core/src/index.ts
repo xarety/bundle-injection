@@ -6,8 +6,8 @@ declare global {
 }
 
 if (WEB_COMPONENT === 'full') {
-    require('./vendor.css');
-    register('st-feature', App, false);
+    require('./design-system.css');
+    register(App, false);
 } else {
-    register('st-feature', App, true);
+    register(App, true);
 }

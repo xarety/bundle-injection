@@ -4,10 +4,11 @@ declare global {
     const DEPENDENCIES: Record<string, string>;
 }
 
-async function getBundleUrl(packageUrl: string) {
-    const { dependencies: packageDependencies } = await (
-        await fetch(`${packageUrl}/package.json`)
-    ).json();
+async function getBundleInfo(packageUrl: string) {
+    const {
+        dependencies: packageDependencies,
+        cli: { 'web-component': WebComponent },
+    } = await (await fetch(`${packageUrl}/package.json`)).json();
 
     const isCompatible = Object.entries(DEPENDENCIES).every(([dependency, version]) => {
         if (!packageDependencies[dependency]) {
@@ -18,7 +19,10 @@ async function getBundleUrl(packageUrl: string) {
         return packageDependencies[dependency] === version;
     });
 
-    return `${packageUrl}/dist/bundle/${isCompatible ? 'light' : 'full'}/index.js`;
+    return {
+        url: `${packageUrl}/dist/bundle/${isCompatible ? 'light' : 'full'}/index.js`,
+        WebComponent,
+    };
 }
 
 export interface LoaderProps {
@@ -26,19 +30,19 @@ export interface LoaderProps {
     name: string;
 }
 
-export const Loader: React.FC<LoaderProps> = ({ packageUrl, name: WebComponent }) => {
+export const Loader: React.FC<LoaderProps> = ({ packageUrl }) => {
     const Loader = React.useMemo(
         () =>
             React.lazy(async () => {
-                const bundleUrl = await getBundleUrl(packageUrl);
+                const { url, WebComponent } = await getBundleInfo(packageUrl);
 
-                if (Array.from(document.scripts).every(({ src }) => src !== bundleUrl)) {
+                if (Array.from(document.scripts).every(({ src }) => src !== url)) {
                     await new Promise(resolve => {
                         const script = document.createElement('script');
 
                         script.onload = resolve;
                         script.async = true;
-                        script.src = bundleUrl;
+                        script.src = url;
 
                         document.body.append(script);
                     });
@@ -46,7 +50,7 @@ export const Loader: React.FC<LoaderProps> = ({ packageUrl, name: WebComponent }
 
                 return { default: () => <WebComponent /> };
             }),
-        [packageUrl, WebComponent]
+        [packageUrl]
     );
 
     return <Loader />;
