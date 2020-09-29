@@ -1,6 +1,6 @@
 {
     "name": "@sandboxes/web-components",
-    "version": "8.3.7",
+    "version": "8.3.9",
     "description": "",
     "main": "./dist/index.js",
     "typings": "./dist/index.d.ts",
